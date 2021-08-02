@@ -62,9 +62,9 @@ contract Insurance is ChainlinkClient {
         managers[_to] = _add;
     }
 
-    /*receive() external payable {
+    receive() external payable {
         // React to receiving ether
-    }*/
+    }
 
     // Allow specific users to create insurance policies 1, 2
     function createPolicy(string memory _url) public onlyOwner {
@@ -90,10 +90,10 @@ contract Insurance is ChainlinkClient {
         emit ReceivedPolicyData(result);
    } */
 
-    function fulfill(bytes32 myid, uint256 _volume) public recordChainlinkFulfillment(myid)
+     function fulfill(bytes32 myid, string memory _result) public recordChainlinkFulfillment(myid)
     {
-        uint256 volume = _volume;
-
+        string memory result = _result; 
+        
     }
 
     /**
